@@ -9,5 +9,5 @@
         
     = link_to "Проверить", "/robots.txt", target: :_blank, title: "Проверить сожержимое robots.txt там и сейчас"    
     '&nbsp;&nbsp;
-    = link_to "Проверить тут", "/robots.txt", title: "Проверить сожержимое robots.txt здесь и сейчас", onclick: "$('#file_contents').load(this.href); return false;"
+    = link_to "Проверить тут", "/robots.txt", title: "Проверить сожержимое robots.txt здесь и сейчас", onclick: "$('#file_contents').load(this.href + '?' + (new Date().getTime())); return false;"
     pre#file_contents{style='margin-bottom: 20px;'}

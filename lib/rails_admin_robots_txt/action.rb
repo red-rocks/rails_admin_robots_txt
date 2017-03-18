@@ -20,6 +20,10 @@ module RailsAdmin
         end
 
         register_instance_option :route_fragment do
+          'robots_txt_editor'
+        end
+
+        register_instance_option :template_name do
           'robots_txt'
         end
 
@@ -80,6 +84,14 @@ module RailsAdmin
 
         register_instance_option :collection? do
           true
+        end
+
+        register_instance_option :route_fragment do
+          'robots_txt_editor'
+        end
+
+        register_instance_option :template_name do
+          'robots_txt'
         end
 
       end
