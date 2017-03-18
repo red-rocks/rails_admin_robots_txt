@@ -29,13 +29,13 @@ module RailsAdmin
               text = File.read(Rails.root.join("public", "robots.txt"))
 
               # {value: text, cols: 80..150, cols: 5..20}
-              textarea_opts = {value: text}
-              textarea_opts[:cols] = text.lines.map(&:size).max || 80
-              textarea_opts[:cols] = 80  if textarea_opts[:cols] < 80
-              textarea_opts[:cols] = 150 if textarea_opts[:cols] > 150
-              textarea_opts[:rows] = text.lines.count + 1
-              textarea_opts[:rows] = 5 if textarea_opts[:rows] > 5
-              textarea_opts[:rows] = 20 if textarea_opts[:rows] > 20
+              @textarea_opts = {value: text}
+              @textarea_opts[:cols] = text.lines.map(&:size).max || 80
+              @textarea_opts[:cols] = 80  if @textarea_opts[:cols] < 80
+              @textarea_opts[:cols] = 150 if @textarea_opts[:cols] > 150
+              @textarea_opts[:rows] = text.lines.count + 1
+              @textarea_opts[:rows] = 5   if @textarea_opts[:rows] < 5
+              @textarea_opts[:rows] = 20  if @textarea_opts[:rows] > 20
 
               render action: @action.template_name
 
