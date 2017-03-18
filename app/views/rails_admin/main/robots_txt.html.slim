@@ -8,12 +8,12 @@
       - rows = @text.lines.count + 1
       - rows = rows > 5 ? rows : 5
       - rows = rows < 20 ? rows : 20
-      = form_for "robots_txt", url: robots_txt_path, method: :post do |f|
+      = form_for "robots_txt", url: robots_txt_path(model_name: @abstract_model), method: :post do |f|
         p= f.submit "Сохранить robots.txt"
         p= f.text_area :content, value: @text, cols: cols, rows: rows
         p= f.submit "Сохранить robots.txt"
         
     = link_to "Проверить", "/robots.txt", target: :_blank, title: "Проверить сожержимое robots.txt там и сейчас"    
     '&nbsp;&nbsp;
-    = link_to "Проверить тут", "/robots.txt", target: :_blank, title: "Проверить сожержимое robots.txt здесь и сейчас", onclick: "$('#file_contents').load(this.href, function(){$('#file_contents').html($('#file_contents').html().replace(/([^>\\r\\n]?)(\\r\\n|\\n\\r|\\r|\\n)/g, '$1<br>$2'));}); return false;"
-    #file_contents{style='margin-bottom: 20px;'}
+    = link_to "Проверить тут", "/robots.txt", title: "Проверить сожержимое robots.txt здесь и сейчас", onclick: "$('#file_contents').load(this.href); return false;"
+    pre#file_contents{style='margin-bottom: 20px;'}

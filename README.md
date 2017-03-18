@@ -20,14 +20,16 @@ Or install it yourself as:
 
 ## Usage
 
-Add 'robots_txt' action in config/initializers/rails_admin.rb
+Add 'robots_txt' or `robots_txt_for_model` action in config/initializers/rails_admin.rb
 
 ```ruby
 RailsAdmin.config do |config|
 
   config.actions do
 
-    robots_txt do
+    robots_txt
+    # or
+    robots_txt_for_model do
       visible do
         ['SEO'].include? bindings[:abstract_model].model_name
       end
@@ -37,6 +39,9 @@ RailsAdmin.config do |config|
 
 end
 ```
+
+Action `robots_txt` is root action, `robots_txt_for_model` action is collection action. They do same things and so locate it wherever you want.
+
 
 ## Development
 

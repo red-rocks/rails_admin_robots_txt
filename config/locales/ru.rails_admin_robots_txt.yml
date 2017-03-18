@@ -2,9 +2,16 @@ ru:
   admin:
     actions:
       robots_txt:
-        menu:           "robots.txt"
-        breadcrumb:     "robots.txt"
+        menu:           "Редактор robots.txt"
+        breadcrumb:     "Редактор robots.txt"
         error:          "Ошибка"
         error_no_data:  "Нет данных"
         success:        "Успешно"
-        title:          "robots.txt"
+        title:          "Редактор robots.txt"
+      robots_txt_for_model:
+        menu:           "Редактор robots.txt"
+        breadcrumb:     "Редактор robots.txt"
+        error:          "Ошибка"
+        error_no_data:  "Нет данных"
+        success:        "Успешно"
+        title:          "Редактор robots.txt"

@@ -7,11 +7,11 @@ module RailsAdmin
 
         # Is the action acting on the root level (Example: /admin/contact)
         register_instance_option :root? do
-          false
+          true
         end
 
         register_instance_option :collection? do
-          true
+          false
         end
 
         # Is the action on an object scope (Example: /admin/team/1/edit)
@@ -51,6 +51,27 @@ module RailsAdmin
         register_instance_option :http_methods do
           [:get, :post]
         end
+      end
+    end
+  end
+end
+
+
+module RailsAdmin
+  module Config
+    module Actions
+      class RobotsTxtForModel < RobotsTxt
+        RailsAdmin::Config::Actions.register(self)
+
+        # Is the action acting on the root level (Example: /admin/contact)
+        register_instance_option :root? do
+          false
+        end
+
+        register_instance_option :collection? do
+          true
+        end
+        
       end
     end
   end
