@@ -1,8 +1,6 @@
 # RailsAdminRobotsTxt
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rails_admin_robots_txt`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+robots.txt file editor for RailsAdmin
 
 ## Installation
 
@@ -22,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add 'robots_txt' action in config/initializers/rails_admin.rb
+
+```ruby
+RailsAdmin.config do |config|
+
+  config.actions do
+
+    robots_txt do
+      visible do
+        ['SEO'].include? bindings[:abstract_model].model_name
+      end
+    end
+
+  end
+
+end
+```
 
 ## Development
 
