@@ -2,15 +2,9 @@
 
   #rails_admin_robots_txt
     .controls                
-      - cols = @text.lines.map(&:size).max || 80
-      - cols = cols > 80 ? cols : 80
-      - cols = cols < 150 ? cols : 150
-      - rows = @text.lines.count + 1
-      - rows = rows > 5 ? rows : 5
-      - rows = rows < 20 ? rows : 20
       = form_for "robots_txt", url: robots_txt_path(model_name: @abstract_model), method: :post do |f|
         p= f.submit "Сохранить robots.txt"
-        p= f.text_area :content, value: @text, cols: cols, rows: rows
+        p= f.text_area :content, @textarea_opts
         p= f.submit "Сохранить robots.txt"
         
     = link_to "Проверить", "/robots.txt", target: :_blank, title: "Проверить сожержимое robots.txt там и сейчас"    
