@@ -3,7 +3,6 @@
   #rails_admin_robots_txt
     .controls                
       = form_for "robots_txt", url: robots_txt_path(model_name: @abstract_model), method: :post do |f|
-        p= f.submit "Сохранить robots.txt"
         p= f.text_area :content, @textarea_opts
         p= f.submit "Сохранить robots.txt"
         

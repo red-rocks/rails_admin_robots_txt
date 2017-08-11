@@ -32,6 +32,16 @@ module RailsAdmin
             if request.get?
               text = File.read(Rails.root.join("public", "robots.txt"))
 
+              # https://github.com/javierjulio/textarea-autosize/blob/master/src/jquery.textarea_autosize.js
+              onkeyup = [
+                "diff = ",
+                "parseInt($(this).css('paddingBottom')) + ",
+                "parseInt($(this).css('paddingTop')) + ",
+                "parseInt($(this).css('borderTopWidth')) + ",
+                "parseInt($(this).css('borderBottomWidth')) || 0; ",
+                "$(this).height(0).height(this.scrollHeight - diff);"
+              ]
+
               # {value: text, cols: 80..150, cols: 5..20}
               @textarea_opts = {value: text}
               @textarea_opts[:cols] = text.lines.map(&:size).max || 80
@@ -40,6 +50,8 @@ module RailsAdmin
               @textarea_opts[:rows] = text.lines.count + 1
               @textarea_opts[:rows] = 5   if @textarea_opts[:rows] < 5
               @textarea_opts[:rows] = 20  if @textarea_opts[:rows] > 20
+              @textarea_opts[:onkeyup] = onkeyup.join
+              @textarea_opts[:oninput] = onkeyup.join
 
               render action: @action.template_name
 
