@@ -1,17 +1,12 @@
-.head
-  .head-label
-    h2 История
-  .toolbar
-.body
-  #rails_admin_robots_txt_wrapper
+#rails_admin_robots_txt_wrapper
 
-    #rails_admin_robots_txt
-      .controls
-        = form_for "robots_txt", url: robots_txt_path(model_name: @abstract_model), method: :post do |f|
-          = f.text_area :content, @textarea_opts
-          = f.submit "Сохранить robots.txt", class: "btn btn-success"
+  #rails_admin_robots_txt
+    .controls
+      = form_for "robots_txt", url: robots_txt_path(model_name: @abstract_model), method: :post do |f|
+        = f.text_area :content, @textarea_opts
+        = f.submit "Сохранить robots.txt", class: "btn btn-success"
 
-      = link_to "Проверить", "/robots.txt", target: :_blank, title: "Проверить сожержимое robots.txt там и сейчас", class: "btn btn-primary"
+    = link_to "Проверить", "/robots.txt", target: :_blank, title: "Проверить сожержимое robots.txt там и сейчас", class: "btn btn-primary"
 
-      = link_to "Проверить тут", "/robots.txt", title: "Проверить сожержимое robots.txt здесь и сейчас", class: "btn btn-primary", onclick: "$('#file_contents').load(this.href + '?' + (new Date().getTime())); return false;"
-      pre#file_contents{style='margin-bottom: 20px;'}
+    = link_to "Проверить тут", "/robots.txt", title: "Проверить сожержимое robots.txt здесь и сейчас", class: "btn btn-primary", onclick: "$('#file_contents').load(this.href + '?' + (new Date().getTime())); return false;"
+    pre#file_contents{style='margin-bottom: 20px;'}
